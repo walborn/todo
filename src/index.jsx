@@ -7,7 +7,7 @@ import Layout from './components/layout/Layout'
 ReactDOM.render(
 	<React.StrictMode>
 		<Layout>
-			<Home />
+      <Home/>
 		</Layout>
 	</React.StrictMode>,
 	document.getElementById('root')

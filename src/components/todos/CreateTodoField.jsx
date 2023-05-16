@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Button from '../Items/Button'
+import { MdAddBox } from 'react-icons/md'
 
 const CreateTodoField = ({ setTodos }) => {
 	const [title, setTitle] = useState('')
@@ -16,7 +18,7 @@ const CreateTodoField = ({ setTodos }) => {
 	}
 
 	return (
-		<div className='flex items-center justify-between mb-4 rounded-2xl border-zinc-800 border-2 px-5 py-3 w-full mt-20'>
+		<div className='flex items-center justify-between mb-4 rounded-2xl border-zinc-800 border-2 px-5 py-3 w-full'>
 			<input
 				type='text'
 				onChange={e => setTitle(e.target.value)}
@@ -25,6 +27,10 @@ const CreateTodoField = ({ setTodos }) => {
 				className='bg-transparent w-full border-none outline-none'
 				placeholder='Add a task'
 			/>
+			<Button onClick={() => addTodo(title)} icon={<MdAddBox
+					size={27}
+					className='text-pink-400 hover:text-grey-600 transition-colors ease-in-out duration-10000'
+				/>} />
 		</div>
 	)
 }

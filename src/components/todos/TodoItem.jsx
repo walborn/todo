@@ -1,8 +1,9 @@
 import React from 'react'
 import cn from 'classnames'
 import { BsTrash } from 'react-icons/bs'
+import Check from '../Items/Check'
+import Button from '../Items/Button'
 
-import Check from './Check'
 
 const TodoItem = ({ todo, changeTodo, removeTodo }) => {
 	return (
@@ -20,12 +21,12 @@ const TodoItem = ({ todo, changeTodo, removeTodo }) => {
 					{todo.title}
 				</span>
 			</button>
-			<button onClick={() => removeTodo(todo._id)}>
-				<BsTrash
+			
+			<Button onClick={() => removeTodo(todo._id)} icon={<BsTrash
 					size={22}
 					className='text-gray-600 hover:text-red-700 transition-colors ease-in-out duration-300'
-				/>
-			</button>
+				/>} />
+
 		</div>
 	)
 }

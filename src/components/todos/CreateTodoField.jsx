@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Button from '../Items/Button'
 import { MdAddBox } from 'react-icons/md'
+import { v4 as uuidv4 } from "uuid"
 
 const CreateTodoField = ({ setTodos }) => {
 	const [title, setTitle] = useState('')
@@ -8,13 +9,14 @@ const CreateTodoField = ({ setTodos }) => {
 	const addTodo = title => {
 		setTodos(prev => [
 			{
-				_id: new Date(),
+				id: uuidv4(),
 				title,
 				isCompleted: false,
 			},
 			...prev,
 		])
 		setTitle('')
+		
 	}
 
 	return (

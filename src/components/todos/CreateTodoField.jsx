@@ -4,8 +4,10 @@ import { MdAddBox } from 'react-icons/md'
 import { v4 as uuidv4 } from "uuid"
 
 const CreateTodoField = ({ setTodos }) => {
-	const [title, setTitle] = useState('')
 
+	//1
+	const [title, setTitle] = useState('')
+	//2
 	const addTodo = title => {
 		setTodos(prev => [
 			{
@@ -15,21 +17,24 @@ const CreateTodoField = ({ setTodos }) => {
 			},
 			...prev,
 		])
-		setTitle('')
-		
+		setTitle('') //очищает поле ввода
 	}
 
+	//поле ввода
 	return (
 		<div className='flex items-center justify-between mb-4 rounded-2xl border-zinc-800 border-2 px-5 py-3 w-full'>
 			<input
 				type='text'
+				//3
 				onChange={e => setTitle(e.target.value)}
+				//4
 				value={title}
-				onKeyPress={e => e.key === 'Enter' && addTodo(title)}
+				onKeyUp={e => e.key === 'Enter' && addTodo(title)}
 				className='bg-transparent w-full border-none outline-none'
 				placeholder='Add a task'
 			/>
-			<Button onClick={() => addTodo(title)} icon={<MdAddBox
+			<Button //5
+				onClick={() => addTodo(title)} icon={<MdAddBox
 					size={27}
 					className='text-pink-400 hover:text-grey-600 transition-colors ease-in-out duration-10000'
 				/>} />

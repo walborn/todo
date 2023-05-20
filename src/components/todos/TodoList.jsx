@@ -1,27 +1,10 @@
 import React, { useState } from 'react'
 import CreateTodoField from './CreateTodoField'
 import TodoItem from './TodoItem'
+import { date } from '../../date/date'
 
-const data = [
-	{
-		id: 'wefw23',
-		title: 'Finish the essay collaboration',
-		isCompleted: false,
-	},
-	{
-		id: 'wefw23232',
-		title: 'Read next chapter of the book',
-		isCompleted: false,
-	},
-	{
-		id: 'wefw2qwefcev3',
-		title: 'Send the finished assignment',
-		isCompleted: false,
-	},
-]
-
-const TodoList = () => {
-	const [todos, setTodos] = useState(data)
+const TodoList = (props) => {
+	const [todos, setTodos] = useState(date)
 
 	const changeTodo = id => {
 		const copy = [...todos]
@@ -30,7 +13,20 @@ const TodoList = () => {
 		setTodos(copy)
 	}
 
-	const removeTodo = id => setTodos([...todos].filter(t => t.id !== id))
+	function editTodo(todo) {
+
+		setTodos(todos.map((t) => {
+			if (t.id === todo.id) {
+				return todo;
+			} else {
+				return t;
+			}
+		}))
+	}
+
+	const removeTodo = id => {
+		setTodos([...todos].filter(t => t.id !== id))
+	}
 
 	return (
 		<div className='py-10 bg-zinc-900'>
@@ -43,6 +39,7 @@ const TodoList = () => {
 						todo={todo}
 						changeTodo={changeTodo}
 						removeTodo={removeTodo}
+						editTodo={editTodo}
 					/>
 				))}
 				<p className='text-gray-500 text-center mb-5'>© 2023 - Angie </p>

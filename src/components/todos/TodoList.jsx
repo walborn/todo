@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import CreateTodoField from './CreateTodoField'
 import TodoItem from './TodoItem'
-import { date } from '../../date/date'
+import { data } from '../../data/data'
 
 const TodoList = (props) => {
-	const [todos, setTodos] = useState(date)
+	const [todos, setTodos] = useState(data)
 
 	const changeTodo = id => {
 		const copy = [...todos]

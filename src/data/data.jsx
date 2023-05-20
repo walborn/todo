@@ -1,4 +1,4 @@
-export const date = [
+export const data = [
 	{
 		id: 'wefw23',
 		title: 'Finish the essay collaboration',

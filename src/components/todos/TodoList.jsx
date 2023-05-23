@@ -1,10 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import CreateTodoField from './CreateTodoField'
 import TodoItem from './TodoItem'
 import { data } from '../../data/data'
 
 const TodoList = (props) => {
 	const [todos, setTodos] = useState(data)
+
+	useEffect(() => {
+		const storedTodos = JSON.parse(localStorage.getItem('todos'));
+		if (storedTodos) {
+			setTodos(storedTodos)
+		}
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem('todos', JSON.stringify(todos));
+	}, [todos])
 
 	const changeTodo = id => {
 		const copy = [...todos]
@@ -14,7 +25,6 @@ const TodoList = (props) => {
 	}
 
 	function editTodo(todo) {
-
 		setTodos(todos.map((t) => {
 			if (t.id === todo.id) {
 				return todo;

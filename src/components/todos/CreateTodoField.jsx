@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Button from '../Items/Button'
 import { MdAddBox } from 'react-icons/md'
 import { v4 as uuidv4 } from "uuid"
+import Input from '../Items/Input'
 
 const CreateTodoField = ({ setTodos }) => {
 
@@ -23,11 +24,19 @@ const CreateTodoField = ({ setTodos }) => {
 	//поле ввода
 	return (
 		<div className='flex items-center justify-between mb-4 rounded-2xl border-zinc-800 border-2 px-5 py-3 w-full'>
-			<input
+			{/*<input
 				type='text'
 				//3
 				onChange={e => setTitle(e.target.value)}
 				//4
+				value={title}
+				onKeyUp={e => e.key === 'Enter' && addTodo(title)}
+				className='bg-transparent w-full border-none outline-none'
+				placeholder='Add a task'
+			/>*/}
+			<Input
+				type='text'
+				onChange={e => setTitle(e.target.value)}
 				value={title}
 				onKeyUp={e => e.key === 'Enter' && addTodo(title)}
 				className='bg-transparent w-full border-none outline-none'

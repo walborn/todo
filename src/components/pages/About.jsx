@@ -11,7 +11,7 @@ const About = () => {
                 Это приложение создано в качестве обучения
             </h1>
             <div className='flex items-center'>
-                <Link to='/'><Button icon={<MdExitToApp
+                <Link to='/todo'><Button icon={<MdExitToApp
                     size={25}
                     className='text-pink-400'
                 />} /></Link>

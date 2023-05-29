@@ -52,7 +52,7 @@ const TodoList = (props) => {
 					<div></div>
 					<h1 className='text-2xl font-bold text-center'>Today</h1>
 					<div className='flex items-center'>
-						<Link to='/'>
+						<Link to='/todo'>
 							<Button icon={<MdExitToApp
 								size={25}
 								className='text-pink-400'

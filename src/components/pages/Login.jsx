@@ -1,4 +1,3 @@
-import Input from '../Items/Input'
 import Button from '../Items/Button'
 import { MdExitToApp } from 'react-icons/md'
 import { Link } from 'react-router-dom'

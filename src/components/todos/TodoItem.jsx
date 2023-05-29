@@ -1,26 +1,31 @@
 import React from 'react'
 import { useState } from 'react'
-//import cn from 'classnames'
 import { BsTrash } from 'react-icons/bs'
 import { FiEdit3 } from 'react-icons/fi'
 import { CiSaveDown2 } from 'react-icons/ci'
 import Check from '../Items/Check'
 import Button from '../Items/Button'
+import Input from '../Items/Input'
 
 const TodoItem = ({ todo, changeTodo, removeTodo }) => {
-	const [isEditing, setIsEditing] = useState('');
+	const [isEditing, setIsEditing] = useState('')
 	const [editTitle, setEditTitle] = useState(todo.title)
 
-	let taskContent;
+	let taskContent
 	if (isEditing) {
 		taskContent = (
 			<>
-				<input className='bg-zinc-800 '
+				{/*<input className='bg-transparent w-full border-none outline-none'
 					value={editTitle}
 					onChange={e => {
-						setEditTitle(e.target.value);
+						setEditTitle(e.target.value)
 					}}
-				/>
+				/>*/}
+				<Input className='bg-transparent w-full border-none outline-none'
+					value={editTitle}
+					onChange={e => {
+						setEditTitle(e.target.value)
+					}} />
 				<div className='flex'>
 					<Button onClick={() => setIsEditing(false)} icon={<CiSaveDown2
 						size={25}
@@ -32,7 +37,7 @@ const TodoItem = ({ todo, changeTodo, removeTodo }) => {
 					/>} />
 				</div>
 			</>
-		);
+		)
 	} else {
 		taskContent = (
 			<>
@@ -48,7 +53,7 @@ const TodoItem = ({ todo, changeTodo, removeTodo }) => {
 					/>} />
 				</div>
 			</>
-		);
+		)
 	}
 
 	return (

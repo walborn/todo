@@ -8,10 +8,10 @@ import Button from '../Items/Button'
 import Input from '../Items/Input'
 
 const TodoItem = ({ todo, changeTodo, removeTodo }) => {
-	const [isEditing, setIsEditing] = useState('');
+	const [isEditing, setIsEditing] = useState('')
 	const [editTitle, setEditTitle] = useState(todo.title)
 
-	let taskContent;
+	let taskContent
 	if (isEditing) {
 		taskContent = (
 			<>
@@ -37,7 +37,7 @@ const TodoItem = ({ todo, changeTodo, removeTodo }) => {
 					/>} />
 				</div>
 			</>
-		);
+		)
 	} else {
 		taskContent = (
 			<>
@@ -53,7 +53,7 @@ const TodoItem = ({ todo, changeTodo, removeTodo }) => {
 					/>} />
 				</div>
 			</>
-		);
+		)
 	}
 
 	return (

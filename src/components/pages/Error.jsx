@@ -7,7 +7,7 @@ const Error = () => {
                 Вы перешли на несуществующую страницу!
             </h1>
         </div>
-    );
-};
+    )
+}
 
 export default Error
